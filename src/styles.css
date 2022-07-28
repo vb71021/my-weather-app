@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(167, 188, 215);
+  background-color: rgb(191, 192, 188);
 }
 h1 {
   color: #e29930;
@@ -18,7 +18,7 @@ p {
   margin-bottom: auto;
 }
 .card {
-  border-color: #217ca3;
+  border-color: azure;
   width: 60%;
   background-color: azure;
   display: block;
@@ -29,14 +29,17 @@ p {
   padding: 12px;
 }
 .predict {
+  display: inline-flexbox;
+  margin: 4px auto;
   text-align: center;
   font-weight: normal;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
+  padding: 5px;
   outline: 2px solid #217ca3;
-  border-radius: 5px;
-  margin: 1px;
-  background-color: #f8f7e1;
+  border-radius: 7px;
+
+  background-color: #d1fbed;
+  max-width: 120px;
 }
 
 .city {
@@ -56,18 +59,25 @@ p {
   font-size: 20px;
   text-transform: capitalize;
 }
-
+#icon-description {
+  font-size: 32px;
+  color: #e29930;
+}
 .degrees {
   color: #217ca3;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 54px;
+}
+.units {
+  position: relative;
+  font-size: 18px;
+  top: -26px;
 }
 
 #celsius,
 #divider,
 #fahrenheit {
   text-decoration: none;
-  font-size: 28px;
 }
 #city-current {
   text-transform: capitalize;
@@ -78,6 +88,7 @@ p {
 #fahrenheit:hover {
   font-weight: bold;
 }
+
 .fa-solid {
   color: #e29930;
   font-size: 24px;
