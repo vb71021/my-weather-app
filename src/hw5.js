@@ -13,6 +13,7 @@
 //let fahrenheitUnit = document.querySelector("#fahrenheit");
 //fahrenheitUnit.addEventListener("click", changeToFahrenheit);
 
+// setting date and time
 let now = new Date();
 
 let dayToday = document.querySelector("#day");
@@ -102,3 +103,5 @@ function showCurrentWeather() {
 let button = document.querySelector("button");
 
 button.addEventListener("click", showCurrentWeather);
+
+showCurrentWeather();
