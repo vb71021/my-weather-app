@@ -43,7 +43,7 @@ let seconds = now.getSeconds();
 if (seconds < 10) {
   seconds = `0${seconds}`;
 }
-timeToday.innerHTML = `time ${hours}:${minutes}:${seconds}`;
+timeToday.innerHTML = `Last updated ${hours}:${minutes}:${seconds}`;
 
 function showCity(event) {
   event.preventDefault();
@@ -64,6 +64,12 @@ function showTemp() {
     let newDescr = response.data.weather[0].description;
     let descriptionFromAPI = document.querySelector(".description");
     descriptionFromAPI.innerHTML = newDescr;
+    let icon = document.querySelector("#icon-description");
+    let iconId = response.data.weather[0].icon;
+    icon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${iconId}@2x.png`
+    );
   }
 
   let anotherCity = document.querySelector("#user-city-input");
@@ -95,6 +101,17 @@ function showCurrentWeather() {
       let newDescr = response.data.weather[0].description;
       let descriptionFromAPI = document.querySelector(".description");
       descriptionFromAPI.innerHTML = newDescr;
+      let wind = document.querySelector("#wind");
+      wind.innerHTML = Math.round(response.data.wind.speed);
+      let humidity = document.querySelector("#humidity");
+      humidity.innerHTML = Math.round(response.data.main.humidity);
+      let iconMain = document.querySelector("#icon-description");
+      iconId = response.data.weather[0].icon;
+      iconMain.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${iconId}@2x.png`
+      );
+      console.log(response);
     }
     axios.get(apiUrl2).then(showMyWeather);
   }
