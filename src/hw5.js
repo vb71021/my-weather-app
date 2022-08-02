@@ -66,10 +66,7 @@ function showTemp() {
     descriptionFromAPI.innerHTML = newDescr;
     let icon = document.querySelector("#icon-description");
     let iconId = response.data.weather[0].icon;
-    icon.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${iconId}@2x.png`
-    );
+    icon.setAttribute("src", `http://openweathermap.org/img/wn/${iconId}.png`);
   }
 
   let anotherCity = document.querySelector("#user-city-input");
@@ -109,7 +106,7 @@ function showCurrentWeather() {
       iconId = response.data.weather[0].icon;
       iconMain.setAttribute(
         "src",
-        `http://openweathermap.org/img/wn/${iconId}@2x.png`
+        `http://openweathermap.org/img/wn/${iconId}.png`
       );
       console.log(response);
     }
