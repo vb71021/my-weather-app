@@ -65,6 +65,8 @@ function showTemp() {
       let degreesC = document.querySelector("#degrees");
       let degreesFahrenheit = Math.round((newTemp * 9) / 5 + 32);
       degreesC.innerHTML = degreesFahrenheit;
+      celsiusUnit.classList.remove("active");
+      fahrenheitUnit.classList.add("active");
     }
 
     let fahrenheitUnit = document.querySelector("#fahrenheit");
@@ -74,6 +76,8 @@ function showTemp() {
       event.preventDefault();
       let degreesF = document.querySelector("#degrees");
       degreesF.innerHTML = newTemp;
+      fahrenheitUnit.classList.remove("active");
+      celsiusUnit.classList.add("active");
     }
 
     let celsiusUnit = document.querySelector("#celsius");
@@ -127,6 +131,10 @@ function showCurrentWeather() {
         let degreesC = document.querySelector("#degrees");
         let degreesFahrenheit = Math.round((currentCityTemp * 9) / 5 + 32);
         degreesC.innerHTML = degreesFahrenheit;
+        //if (celsiusUnit.classList === "active") {
+        celsiusUnit.classList.remove("active");
+        //}
+        fahrenheitUnit.classList.add("active");
       }
 
       let fahrenheitUnit = document.querySelector("#fahrenheit");
@@ -136,6 +144,8 @@ function showCurrentWeather() {
         event.preventDefault();
         let degreesF = document.querySelector("#degrees");
         degreesF.innerHTML = currentCityTemp;
+        fahrenheitUnit.classList.remove("active");
+        celsiusUnit.classList.add("active");
       }
 
       let celsiusUnit = document.querySelector("#celsius");

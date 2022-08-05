@@ -13,6 +13,7 @@ h3 {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 p {
   margin-top: 0;
   margin-bottom: auto;
@@ -66,9 +67,12 @@ ul {
 }
 #icon-description {
   font-size: 48px;
-  color: #e29930;
   padding: 0px 0px 26px 0px;
 }
+#city-current {
+  text-transform: capitalize;
+}
+
 .degrees {
   color: #212aa3;
   font-weight: bold;
@@ -80,18 +84,22 @@ ul {
   top: -26px;
 }
 
-#celsius,
-#divider,
-#fahrenheit {
-  text-decoration: none;
-}
-#city-current {
-  text-transform: capitalize;
-}
 #celsius:hover {
   font-weight: bold;
 }
 #fahrenheit:hover {
+  font-weight: bold;
+}
+a#celsius {
+  color: #212aa3;
+  text-decoration: none;
+}
+a#fahrenheit {
+  color: #212aa3;
+  text-decoration: none;
+}
+
+.active {
   font-weight: bold;
 }
 
@@ -126,7 +134,7 @@ input[type="submit"] {
   box-shadow: 1px 2px 2px rgba(94, 92, 92, 0.7);
 }
 input[type="submit"]:hover {
-  background-color: #26e2a7;
+  background-color: #212aa3;
 }
 
 button {
@@ -143,7 +151,7 @@ button {
   box-shadow: 1px 2px 2px rgba(94, 92, 92, 0.7);
 }
 button:hover {
-  background-color: #26e2a7;
+  background-color: #212aa3;
   transition: all 200ms ease-in-out 2ms;
   color: white;
 }
