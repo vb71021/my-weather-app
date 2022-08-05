@@ -1,18 +1,3 @@
-//function changeToCelsius(event) {
-//let degreesF = document.querySelector("#degrees");
-
-//degreesF.innerHTML = 17;
-//}
-//let celsiusUnit = document.querySelector("#celsius");
-//celsiusUnit.addEventListener("click", changeToCelsius);
-
-//function changeToFahrenheit(event) {
-//let degreesC = document.querySelector("#degrees");
-//degreesC.innerHTML = 66;
-//}
-//let fahrenheitUnit = document.querySelector("#fahrenheit");
-//fahrenheitUnit.addEventListener("click", changeToFahrenheit);
-
 // setting date and time
 let now = new Date();
 
@@ -64,9 +49,35 @@ function showTemp() {
     let newDescr = response.data.weather[0].description;
     let descriptionFromAPI = document.querySelector(".description");
     descriptionFromAPI.innerHTML = newDescr;
+    let wind = document.querySelector("#wind");
+    wind.innerHTML = Math.round(response.data.wind.speed);
+    let humidity = document.querySelector("#humidity");
+    humidity.innerHTML = Math.round(response.data.main.humidity);
+
     let icon = document.querySelector("#icon-description");
     let iconId = response.data.weather[0].icon;
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${iconId}.png`);
+
+    //Celsius to Fahrenheit
+
+    function changeToFahrenheit(event) {
+      event.preventDefault();
+      let degreesC = document.querySelector("#degrees");
+      let degreesFahrenheit = Math.round((newTemp * 9) / 5 + 32);
+      degreesC.innerHTML = degreesFahrenheit;
+    }
+
+    let fahrenheitUnit = document.querySelector("#fahrenheit");
+    fahrenheitUnit.addEventListener("click", changeToFahrenheit);
+
+    function changeToCelsius(event) {
+      event.preventDefault();
+      let degreesF = document.querySelector("#degrees");
+      degreesF.innerHTML = newTemp;
+    }
+
+    let celsiusUnit = document.querySelector("#celsius");
+    celsiusUnit.addEventListener("click", changeToCelsius);
   }
 
   let anotherCity = document.querySelector("#user-city-input");
@@ -108,8 +119,29 @@ function showCurrentWeather() {
         "src",
         `http://openweathermap.org/img/wn/${iconId}.png`
       );
-      console.log(response);
+
+      //Celsius to Fahrenheit
+
+      function changeToFahrenheit(event) {
+        event.preventDefault();
+        let degreesC = document.querySelector("#degrees");
+        let degreesFahrenheit = Math.round((currentCityTemp * 9) / 5 + 32);
+        degreesC.innerHTML = degreesFahrenheit;
+      }
+
+      let fahrenheitUnit = document.querySelector("#fahrenheit");
+      fahrenheitUnit.addEventListener("click", changeToFahrenheit);
+
+      function changeToCelsius(event) {
+        event.preventDefault();
+        let degreesF = document.querySelector("#degrees");
+        degreesF.innerHTML = currentCityTemp;
+      }
+
+      let celsiusUnit = document.querySelector("#celsius");
+      celsiusUnit.addEventListener("click", changeToCelsius);
     }
+
     axios.get(apiUrl2).then(showMyWeather);
   }
   navigator.geolocation.getCurrentPosition(showMyPosition);
