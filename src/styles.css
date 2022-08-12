@@ -109,7 +109,16 @@ a#fahrenheit {
 }
 .degree-predict {
   color: #217ca3;
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+#min-deg-d1,
+#min-deg-d2,
+#min-deg-d3,
+#min-deg-d4,
+#min-deg-d5 {
+  color: #217ca3;
+  font-size: 16px;
 }
 
 input[type="text"] {
@@ -160,6 +169,7 @@ label {
   text-shadow: 0.5px 0.5px 0.5px #217ca3;
   word-break: break-all;
 }
+
 .github_link {
   text-align: center;
 }

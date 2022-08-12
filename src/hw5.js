@@ -37,8 +37,6 @@ function showCity(event) {
 
   if (newCity.value) {
     currentCity.innerHTML = newCity.value;
-    //} else {
-    // alert("Type city,please");
   }
 }
 function showTemp() {
@@ -57,14 +55,7 @@ function showTemp() {
     let icon = document.querySelector("#icon-description");
     let iconId = response.data.weather[0].icon;
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${iconId}.png`);
-    function getPredictionNewLocation(coords) {
-      let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
-      let apiUrl3 = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=metric`;
-      console.log(apiUrl3);
-    }
-
-    getPredictionNewLocation(response.data.coord);
-
+    getForecastFromAPI(response.data.coord);
     //Celsius to Fahrenheit
 
     function changeToFahrenheit(event) {
@@ -95,6 +86,117 @@ function showTemp() {
   let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${anotherCity.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getTemperature);
+}
+
+function formatDays(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function showForecast(response) {
+  //day1
+  let day1 = document.querySelector("#day-one");
+  let nextDay1 = response.data.daily[1].dt;
+  let nextDay1Formatted = formatDays(nextDay1);
+  console.log(response.data.daily);
+  day1.innerHTML = nextDay1Formatted;
+  let day1maxTemp = document.querySelector("#max-deg-d1");
+  day1maxTemp.innerHTML = Math.round(response.data.daily[1].temp.max);
+  let day1minTemp = document.querySelector("#min-deg-d1");
+  day1minTemp.innerHTML = Math.round(response.data.daily[1].temp.min);
+  let day1Descr = document.querySelector("#day-one-description");
+  day1Descr.innerHTML = response.data.daily[1].weather[0].description;
+  let day1icon = response.data.daily[1].weather[0].icon;
+  let iconday1 = document.querySelector("#icon-forecast1");
+  iconday1.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${day1icon}.png`
+  );
+
+  //day2
+  let day2 = document.querySelector("#day-two");
+  let nextDay2 = response.data.daily[2].dt;
+  let nextDay2Formatted = formatDays(nextDay2);
+  console.log(nextDay2);
+  day2.innerHTML = nextDay2Formatted;
+  let day2maxTemp = document.querySelector("#max-deg-d2");
+  day2maxTemp.innerHTML = Math.round(response.data.daily[2].temp.max);
+  let day2minTemp = document.querySelector("#min-deg-d2");
+  day2minTemp.innerHTML = Math.round(response.data.daily[2].temp.min);
+  let day2Descr = document.querySelector("#day-two-description");
+  day2Descr.innerHTML = response.data.daily[2].weather[0].description;
+  let day2icon = response.data.daily[2].weather[0].icon;
+  let iconday2 = document.querySelector("#icon-forecast2");
+  iconday2.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${day2icon}.png`
+  );
+
+  //day3
+  let day3 = document.querySelector("#day-three");
+  let nextDay3 = response.data.daily[3].dt;
+  let nextDay3Formatted = formatDays(nextDay3);
+  console.log(nextDay3);
+  day3.innerHTML = nextDay3Formatted;
+  let day3maxTemp = document.querySelector("#max-deg-d3");
+  day3maxTemp.innerHTML = Math.round(response.data.daily[3].temp.max);
+  let day3minTemp = document.querySelector("#min-deg-d3");
+  day3minTemp.innerHTML = Math.round(response.data.daily[3].temp.min);
+  let day3Descr = document.querySelector("#day-three-description");
+  day3Descr.innerHTML = response.data.daily[3].weather[0].description;
+  let day3icon = response.data.daily[3].weather[0].icon;
+  let iconday3 = document.querySelector("#icon-forecast3");
+  iconday3.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${day3icon}.png`
+  );
+
+  //day4
+  let day4 = document.querySelector("#day-four");
+  let nextDay4 = response.data.daily[4].dt;
+  let nextDay4Formatted = formatDays(nextDay4);
+  console.log(nextDay4);
+  day4.innerHTML = nextDay4Formatted;
+  let day4maxTemp = document.querySelector("#max-deg-d4");
+  day4maxTemp.innerHTML = Math.round(response.data.daily[4].temp.max);
+  let day4minTemp = document.querySelector("#min-deg-d4");
+  day4minTemp.innerHTML = Math.round(response.data.daily[4].temp.min);
+  let day4Descr = document.querySelector("#day-four-description");
+  day4Descr.innerHTML = response.data.daily[4].weather[0].description;
+  let day4icon = response.data.daily[4].weather[0].icon;
+  let iconday4 = document.querySelector("#icon-forecast4");
+  iconday4.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${day4icon}.png`
+  );
+
+  //day5
+  let day5 = document.querySelector("#day-five");
+  let nextDay5 = response.data.daily[5].dt;
+  let nextDay5Formatted = formatDays(nextDay5);
+  console.log(nextDay5);
+  day5.innerHTML = nextDay5Formatted;
+  let day5maxTemp = document.querySelector("#max-deg-d5");
+  day5maxTemp.innerHTML = Math.round(response.data.daily[5].temp.max);
+  let day5minTemp = document.querySelector("#min-deg-d5");
+  day5minTemp.innerHTML = Math.round(response.data.daily[5].temp.min);
+  let day5Descr = document.querySelector("#day-five-description");
+  day5Descr.innerHTML = response.data.daily[5].weather[0].description;
+  let day5icon = response.data.daily[5].weather[0].icon;
+  let iconday5 = document.querySelector("#icon-forecast5");
+  iconday5.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${day5icon}.png`
+  );
+}
+function getForecastFromAPI(coordinates) {
+  console.log(coordinates);
+  let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 let form = document.querySelector("#city-form");
