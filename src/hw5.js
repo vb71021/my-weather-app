@@ -57,6 +57,13 @@ function showTemp() {
     let icon = document.querySelector("#icon-description");
     let iconId = response.data.weather[0].icon;
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${iconId}.png`);
+    function getPredictionNewLocation(coords) {
+      let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
+      let apiUrl3 = `https://api.openweathermap.org/data/3.0/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=metric`;
+      console.log(apiUrl3);
+    }
+
+    getPredictionNewLocation(response.data.coord);
 
     //Celsius to Fahrenheit
 
