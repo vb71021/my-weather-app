@@ -56,6 +56,7 @@ function showTemp() {
     let iconId = response.data.weather[0].icon;
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${iconId}.png`);
     getForecastFromAPI(response.data.coord);
+
     //Celsius to Fahrenheit
 
     function changeToFahrenheit(event) {
@@ -65,6 +66,9 @@ function showTemp() {
       degreesC.innerHTML = degreesFahrenheit;
       celsiusUnit.classList.remove("active");
       fahrenheitUnit.classList.add("active");
+      document.querySelector("#max-deg-d1").innerHTML = Math.round(
+        (response.data.daily[1].temp.max * 9) / 5 + 32
+      );
     }
 
     let fahrenheitUnit = document.querySelector("#fahrenheit");
@@ -193,9 +197,10 @@ function showForecast(response) {
   );
 }
 function getForecastFromAPI(coordinates) {
-  console.log(coordinates);
+  let lat = coordinates.lat;
+  let long = coordinates.lon;
   let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -211,6 +216,9 @@ function showCurrentWeather() {
 
     let apiKey = "d9cd27eb3f86fe62cc5c47529385e41c";
     let apiUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
 
     function showMyWeather(response) {
       let currentCityName = response.data.name;
