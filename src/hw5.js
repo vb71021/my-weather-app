@@ -4,8 +4,22 @@ let now = new Date();
 let dayToday = document.querySelector("#day");
 dayToday.innerHTML = now.getDate();
 
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 let monthToday = document.querySelector("#month");
-monthToday.innerHTML = now.getMonth() + 1;
+monthToday.innerHTML = months[now.getMonth()];
 
 let yearToday = document.querySelector("#year");
 yearToday.innerHTML = now.getFullYear();
@@ -66,9 +80,6 @@ function showTemp() {
       degreesC.innerHTML = degreesFahrenheit;
       celsiusUnit.classList.remove("active");
       fahrenheitUnit.classList.add("active");
-      document.querySelector("#max-deg-d1").innerHTML = Math.round(
-        (response.data.daily[1].temp.max * 9) / 5 + 32
-      );
     }
 
     let fahrenheitUnit = document.querySelector("#fahrenheit");
