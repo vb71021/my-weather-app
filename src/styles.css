@@ -54,7 +54,7 @@ ul {
   padding: 5px;
   outline: 2px solid #217ca3;
   border-radius: 15px 0px;
-
+  box-shadow: 2px 2px 2px rgba(94, 92, 92, 0.8);
   background-color: #b2c7df;
   max-width: 110px;
 }
@@ -193,9 +193,14 @@ label {
   color: #fcfdfd;
   text-shadow: 1px 1px 1px #212aa3;
   word-break: break-all;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .github_link {
   text-align: center;
+  font-weight: bold;
+}
+#source {
+  color: #212aa3;
+  font-weight: bold;
 }

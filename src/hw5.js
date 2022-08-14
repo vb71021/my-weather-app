@@ -116,7 +116,7 @@ function showForecast(response) {
   let day1 = document.querySelector("#day-one");
   let nextDay1 = response.data.daily[1].dt;
   let nextDay1Formatted = formatDays(nextDay1);
-  console.log(response.data.daily);
+
   day1.innerHTML = nextDay1Formatted;
   let day1maxTemp = document.querySelector("#max-deg-d1");
   day1maxTemp.innerHTML = Math.round(response.data.daily[1].temp.max);
@@ -135,7 +135,7 @@ function showForecast(response) {
   let day2 = document.querySelector("#day-two");
   let nextDay2 = response.data.daily[2].dt;
   let nextDay2Formatted = formatDays(nextDay2);
-  console.log(nextDay2);
+
   day2.innerHTML = nextDay2Formatted;
   let day2maxTemp = document.querySelector("#max-deg-d2");
   day2maxTemp.innerHTML = Math.round(response.data.daily[2].temp.max);
@@ -154,7 +154,7 @@ function showForecast(response) {
   let day3 = document.querySelector("#day-three");
   let nextDay3 = response.data.daily[3].dt;
   let nextDay3Formatted = formatDays(nextDay3);
-  console.log(nextDay3);
+
   day3.innerHTML = nextDay3Formatted;
   let day3maxTemp = document.querySelector("#max-deg-d3");
   day3maxTemp.innerHTML = Math.round(response.data.daily[3].temp.max);
@@ -173,7 +173,7 @@ function showForecast(response) {
   let day4 = document.querySelector("#day-four");
   let nextDay4 = response.data.daily[4].dt;
   let nextDay4Formatted = formatDays(nextDay4);
-  console.log(nextDay4);
+
   day4.innerHTML = nextDay4Formatted;
   let day4maxTemp = document.querySelector("#max-deg-d4");
   day4maxTemp.innerHTML = Math.round(response.data.daily[4].temp.max);
@@ -192,7 +192,7 @@ function showForecast(response) {
   let day5 = document.querySelector("#day-five");
   let nextDay5 = response.data.daily[5].dt;
   let nextDay5Formatted = formatDays(nextDay5);
-  console.log(nextDay5);
+
   day5.innerHTML = nextDay5Formatted;
   let day5maxTemp = document.querySelector("#max-deg-d5");
   day5maxTemp.innerHTML = Math.round(response.data.daily[5].temp.max);
@@ -221,7 +221,6 @@ form.addEventListener("submit", showTemp);
 
 function showCurrentWeather() {
   function showMyPosition(position) {
-    console.log(position);
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
 
